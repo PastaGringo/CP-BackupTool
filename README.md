@@ -1,4 +1,4 @@
-CP-BackupTool
+CP-BackupTool working with QuickBox.io ✔️️
 =============
 
 backup and restore tool for CouchPotato's wanted list.
