@@ -3,9 +3,11 @@ import sys
 import urllib
 import os
 import ConfigParser
-import json 
+import json
 import argparse
 import time
+import urllib2
+import base64
 
 # Default values that will be used if not found in CFG
 default_host = 'localhost'
@@ -46,7 +48,12 @@ def apiCall(url, verbose = True):
     if verbose:
         print "Opening URL:", url
     try:
-        urlObj = urllib.urlopen(url)
+	p = urllib2.HTTPPasswordMgrWithDefaultRealm()
+	p.add_password(None, url, username, password)
+	handler = urllib2.HTTPDigestAuthHandler(p)
+	opener = urllib2.build_opener(handler)
+	urlObj = opener.open(url)
+
     except:
         print "Failed to open URL:", url
         print "Caught following:"
@@ -87,6 +94,10 @@ def process(type, backup = None):
     apikey = validateConf(config, sections[0], "api_key")
     ssl = validateConf(config, sections[0], "ssl")
     web_root = validateConf(config, sections[0], "url_base")
+    global username
+    username = validateConf(config, sections[0], "username")
+    global password
+    password = validateConf(config, sections[0], "password")
 
     if ssl:
         protocol = "https://"
@@ -101,7 +112,8 @@ def process(type, backup = None):
         web_root = web_root[:-1]
 
     # The base URL
-    baseurl = protocol + host + ":" + str(port) + web_root + "/api/" + apikey + "/"
+    #baseurl = protocol + user + ":" + password + "@" + host + web_root + "/api/" + apikey + "/"
+    baseurl = protocol + host + web_root + "/api/" + apikey + "/"
     if type == "backup":
         result = listWanted(baseurl)
 
