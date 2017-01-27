@@ -8,7 +8,7 @@ Clone the repo locally :
 sudo git clone https://github.com/PastaGringo/CP-BackupTool-QB.git
 ```
 
-In the directory CP-BackupTool, Modify the couch.cfg with your values (only API, urlbase, username and password are needed) : 
+In the directory CP-BackupTool-QB, Modify the couch.cfg with your values (only API, urlbase, username and password are needed) : 
 ```
 nano couch.cfg
 ```
