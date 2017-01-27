@@ -1,11 +1,11 @@
-CP-BackupTool working with QuickBox.io ✔️️
+CP-BackupTool-QB working with QuickBox.io ✔️️
 =============
 
 ###### How-to
 
 Clone the repo locally :
 ```
-sudo git clone https://github.com/PastaGringo/CP-BackupTool.git
+sudo git clone https://github.com/PastaGringo/CP-BackupTool-QB.git
 ```
 
 In the directory CP-BackupTool, Modify the couch.cfg with your values (only API, urlbase, username and password are needed) : 
