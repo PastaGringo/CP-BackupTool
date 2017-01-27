@@ -1,6 +1,20 @@
 CP-BackupTool working with QuickBox.io ✔️️
 =============
 
+###### How-to
+
+Clone the repo locally :
+```
+sudo git clone https://github.com/PastaGringo/CP-BackupTool.git
+```
+
+In the directory CP-BackupTool, Modify the couch.cfg with your values (only API, urlbase, username and password are needed) : 
+```
+nano couch.cfg
+```
+
+Done!
+
 backup and restore tool for CouchPotato's wanted list.
 
 After cloning this repo you need to edit the couch.cfg to add your correct host, path and apikey (from CouchPotato, settings, general)
